@@ -1,3 +1,3 @@
-<app-output-window [expressionValue]="expVal">
+<app-output-window [expressionValue]="expVal" (clickSymb)="onCalcBtnClick($event)">
 </app-output-window>
 <app-button-pad (clickBut)="onCalcBtnClick($event)"></app-button-pad>
