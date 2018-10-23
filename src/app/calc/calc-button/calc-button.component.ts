@@ -8,17 +8,25 @@ import {EventEmitter, Output, Input, Component, OnInit } from '@angular/core';
 export class CalcButtonComponent implements OnInit {
 
     @Input() nameBut: string;
+    @Input() codeBtn: OperationCode = OperationCode.type;
     @Output() clickBut = new EventEmitter<lables>();
     public onClick (event){
       let arg = new lables();
       arg.label = this.nameBut;
+      arg.operationCode = this.codeBtn;
       this.clickBut.emit(arg);
     }
   ngOnInit() {
   }
 
 }
+export enum OperationCode {
+  type = 0,
+  enter = 1,
+  backspace = 2,
+  clear = 3,
+};
 export class lables  {
   public label: string;
-
+  public operationCode: OperationCode;
 }

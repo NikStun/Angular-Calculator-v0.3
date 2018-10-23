@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { lables } from '../calc-button/calc-button.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { lables, OperationCode } from '../calc-button/calc-button.component';
 import * as math from 'mathjs';
 @Component({
   selector: 'app-calc',
@@ -8,18 +8,30 @@ import * as math from 'mathjs';
 })
 export class CalcComponent implements OnInit {
 
-  expVal: string = '';
+ expVal: string = '';
 
 
   ngOnInit() {
   }
   public onCalcBtnClick(event: lables){
-      if(event.label == 'C'){
+      if(event.operationCode == OperationCode.clear){
         this.expVal = '';
-      } else if(event.label == '='){
-      this.expVal = math.eval(this.expVal)
+      } else if(event.operationCode == OperationCode.enter){
+        this.expVal = math.eval(this.expVal) + '';
       }
-      else{this.expVal = this.expVal + event.label;}
+      else if(event.operationCode == OperationCode.backspace){
+        if(this.expVal.length >0){
+          if(this.expVal.length == 1){
+          this.expVal = '';
+          }
+          else{
+            this.expVal = this.expVal.slice(0,this.expVal.length - 1);
+        }
+      }
+    }
+      else{
+        this.expVal = this.expVal + event.label;
+      }
   }
-
-}
+//@Input() calcHis:
+  }

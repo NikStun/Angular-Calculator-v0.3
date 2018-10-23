@@ -18,9 +18,9 @@
  <td><app-calc-button [nameBut]="'*'" (clickBut)="onCalcBtnClick($event)"></app-calc-button></td>
 </tr>
 <tr>
- <td><app-calc-button [nameBut]="'C'" (clickBut)="onCalcBtnClick($event)"></app-calc-button></td>
+ <td><app-calc-button [nameBut]="'C'" [codeBtn]="3" (clickBut)="onCalcBtnClick($event)"></app-calc-button></td>
  <td><app-calc-button [nameBut]="'0'" (clickBut)="onCalcBtnClick($event)"></app-calc-button></td>
- <td><app-calc-button [nameBut]="'='" (clickBut)="onCalcBtnClick($event)"></app-calc-button></td>
+ <td><app-calc-button [nameBut]="'='" [codeBtn]="1" (clickBut)="onCalcBtnClick($event)"></app-calc-button></td>
  <td><app-calc-button [nameBut]="'/'" (clickBut)="onCalcBtnClick($event)"></app-calc-button></td>
 </tr>
 <br>
