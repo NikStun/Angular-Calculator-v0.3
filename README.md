@@ -1,6 +1,6 @@
 # Democalc
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3. Firstly you need to install all necessary packages. Run `npm install` for downloading them.
 
 ## Development server
 
