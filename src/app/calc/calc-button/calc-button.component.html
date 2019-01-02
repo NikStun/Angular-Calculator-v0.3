@@ -1,1 +1,1 @@
-<button (click)="onClick($event)" >{{nameBut}}</button>
+<button type="button" class="calculator__key" [class.calculator__button]="codeBtn == 0" [class.calculator__key--equal]="codeBtn == 1" [class.calculator__key--backspase]="codeBtn == 2" [class.calculator__clear]="codeBtn == 3"  (click)="onClick($event)">{{nameBut}}</button>
