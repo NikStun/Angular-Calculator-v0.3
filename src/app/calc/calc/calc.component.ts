@@ -1,6 +1,10 @@
 import { EventEmitter, Output, Component, OnInit, Input } from '@angular/core';
 import { lables, OperationCode } from '../calc-button/calc-button.component';
+import { CurrencyService } from '../../services/currency.service';
 import * as math from 'mathjs';
+
+import { ExchangeRatesService } from '../../services/exchange-rates.service';
+
 @Component({
   selector: 'app-calc',
   templateUrl: './calc.component.html',
@@ -10,8 +14,7 @@ export class CalcComponent implements OnInit {
 
   expVal: string = '';
   @Output() expSend = new EventEmitter<ExecExp2Event>();
-  ngOnInit() {
-  }
+
   public onCalcBtnClick(event: lables){
       if(event.operationCode == OperationCode.clear){
         this.expVal = '';
@@ -35,6 +38,19 @@ export class CalcComponent implements OnInit {
       else{
         this.expVal = this.expVal + event.label;
       }
+  }
+  public rateUSD: number;
+  constructor(private _exchangeRates: ExchangeRatesService,
+             // private _currencyService: CurrencyService
+             ){}
+  ngOnInit() {
+    this._exchangeRates.getAll()
+    .subscribe((result: any) =>
+    {
+    this.rateUSD = result.Valute['USD'].Value;
+    });
+   // this._currencyService.loadCurrencies();
+   // console.log(this._currencyService.rates);
   }
 }
 export class ExecExp2Event{

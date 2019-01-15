@@ -57,8 +57,11 @@
 .calculator__history {
   text-align: center;
   max-height: 200px;
-  margin-left: 585px;
-  width: 250px;
+  // margin-left: 585px;
+  width: 100%;
   overflow: scroll;
-  border: 1px solid darkslateblue;
+  border-bottom: 1px solid darkslateblue;
+}
+.clear_note {
+
 }
