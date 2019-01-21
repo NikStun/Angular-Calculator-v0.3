@@ -40,19 +40,12 @@ export class CalcComponent implements OnInit {
       }
   }
   public rateUSD: number;
-  constructor(private _exchangeRates: ExchangeRatesService,
-             // private _currencyService: CurrencyService
-             ){}
+  constructor(){}
   ngOnInit() {
-    this._exchangeRates.getAll()
-    .subscribe((result: any) =>
-    {
-    this.rateUSD = result.Valute['USD'].Value;
-    });
-   // this._currencyService.loadCurrencies();
-   // console.log(this._currencyService.rates);
+
   }
 }
+
 export class ExecExp2Event{
   public expression: string;
   public result: string;

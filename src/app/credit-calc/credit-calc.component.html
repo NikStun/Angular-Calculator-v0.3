@@ -1,0 +1,40 @@
+<form [formGroup]="creditForm">
+  <fieldset>
+  <legend class="offer">Credit Form:</legend>
+  <div>
+    <label>
+      Amount of credit:
+      <input type="text" formControlName="amountOfCredit" mask='0*'> RUB<br>
+    </label>
+    <label>
+      Time of credit in mounths:
+      <input type="text" formControlName="timeOfCredit" mask='0*'> mounths<br>
+    </label>
+    <label>
+        Percent of credict:
+        <input type="text" formControlName="percentOfCredit"><br>
+    </label>
+    <label>
+      Date of starting pays:
+      <input type="text" formControlName="startingDate" [dpDayPicker]="config" theme="dp-material"><br>
+    </label>
+    <br>
+    <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.required">Required amount of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.min">Minimum value of credit is 0</div>
+
+    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.required">Required time of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.min">Minimum time of credit is 1 mounth</div>
+    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.max">Maximum time of credit is 360</div>
+
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.required">Required time of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.min">Minimum percent is 0</div>
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.max">Maximum percent is 100</div>
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.patter">Incorrect percent</div>
+
+
+    <div class="error_input" *ngIf="creditForm.controls['startingDate'].errors && creditForm.controls['startingDate'].errors.required && creditForm.controls['startingDate'].touched">Required date of starting credit</div>
+    <button>Calculate</button>
+    <button (click)="clearForm(creditForm)">Clear</button>
+  </div>
+</fieldset>
+</form>
