@@ -9,6 +9,7 @@ export class CurrencyService {
   constructor(private _ExchangeRates: ExchangeRatesService) { }
 
   public rates: Currency[] = [];
+
   public loadCurrencies(){
    this._ExchangeRates.getAll().subscribe((result: ExchangeRates) =>
    {
@@ -34,6 +35,7 @@ public reverseConversion(code: string, amount: number){
       }
     }
 }
+
 
 }
 export class Currency{

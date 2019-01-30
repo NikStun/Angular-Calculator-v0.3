@@ -11,11 +11,12 @@ export class CalcConverterComponent implements OnInit {
   resultCurrencyCode: string;
   convertForm: FormGroup;
   result: number;
+
   directConversion(convertForm: FormGroup){
-  this.convertForm.markAsTouched();
-  this.resultCurrencyCode = this.convertForm.controls['radioButton'].value;
-  if(this.convertForm.valid){
-  return this.result = this._currencyService.directConversion(this.convertForm.controls['radioButton'].value, this.convertForm.controls['amountField'].value);
+   this.convertForm.markAsTouched();
+   this.resultCurrencyCode = this.convertForm.controls['radioButton'].value;
+   if(this.convertForm.valid){
+   return this.result = this._currencyService.directConversion(this.convertForm.controls['radioButton'].value, this.convertForm.controls['amountField'].value);
    }
   }
   reverseConversion(convertForm: FormGroup){
@@ -25,15 +26,20 @@ export class CalcConverterComponent implements OnInit {
      return this.result = this._currencyService.reverseConversion(this.convertForm.controls['radioButton'].value, this.convertForm.controls['amountField'].value);
     }
    }
+   clearForm(convertForm: FormGroup){
+    this.convertForm.reset();
+    delete this.result;
 
+   }
   constructor(private _currencyService: CurrencyService) {
     this.convertForm = new FormGroup({
       radioButton: new FormControl('', Validators.required),
-      amountField: new FormControl(0, [Validators.required, Validators.min(0), Validators.pattern('^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$')])
+      amountField: new FormControl(0, [Validators.required, Validators.min(0), Validators.pattern('^[0-9]*[.,]?[0-9]+$')])
     });
   }
 
   ngOnInit() {
+    this._currencyService.rates = [];
     this._currencyService.loadCurrencies();
   }
 

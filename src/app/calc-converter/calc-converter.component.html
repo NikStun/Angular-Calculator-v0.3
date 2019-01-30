@@ -11,13 +11,15 @@
       Amount to convert:
       <input type="text" formControlName="amountField"><br> </label>
       <label>{{result | currency:resultCurrencyCode}}</label>
-      <div class="error_input" *ngIf="convertForm.controls['amountField'].errors && convertForm.controls['amountField'].errors.required">Required field</div>
+      <div class="error_input" *ngIf="convertForm.controls['amountField'].errors && convertForm.controls['amountField'].errors.required && convertForm.controls['amountField'].touched">Required field</div>
       <div class="error_input" *ngIf="convertForm.controls['amountField'].errors && convertForm.controls['amountField'].errors.pattern">Incorrect value</div>
       <div class="error_input" *ngIf="convertForm.controls['amountField'].errors && convertForm.controls['amountField'].errors.min">Minimum value is 0</div>
       <div class="error_input" *ngIf="convertForm.controls['radioButton'].errors && convertForm.controls['radioButton'].errors.required && convertForm.controls['radioButton'].touched">Required currency</div>
 
-    <br><button (click)="directConversion(convertForm)">direct convert</button>
-  <button (click)="reverseConversion(convertForm)">reverse convert</button>
+  <br>
+  <button class="btn_form1" (click)="directConversion(convertForm)">direct convert</button>
+  <button class="btn_form" (click)="reverseConversion(convertForm)">reverse convert</button>
+  <button class="btn_form" (click)="clearForm(convertForm)">Clear</button>
   </div>
 </fieldset>
 </form>

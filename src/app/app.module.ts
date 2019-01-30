@@ -9,6 +9,7 @@ import { LocalStorageService } from './services/local-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ExchangeRatesService } from './services/exchange-rates.service';
 import { CurrencyService } from './services/currency.service';
+import { CreditService } from './services/credit.service';
 import { CalcConverterComponent } from './calc-converter/calc-converter.component';
 
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
@@ -19,6 +20,7 @@ import { CreditCalcComponent } from './credit-calc/credit-calc.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CalcContainerComponent } from './calc-container/calc-container.component';
+
 
 const appRoutes: Routes = [
   {path:'', redirectTo: 'calc', pathMatch: 'full'},
@@ -48,7 +50,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     DpDatePickerModule
   ],
-  providers: [LocalStorageService, ExchangeRatesService, CurrencyService],
+  providers: [LocalStorageService, ExchangeRatesService, CurrencyService, CreditService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

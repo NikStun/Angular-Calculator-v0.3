@@ -66,9 +66,34 @@ label {
   margin-right: 15px;
   line-height: 32px;
 }
+// ссылки
+a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 5px 10px;
+  padding: 10px 15px;
+  font-size: 10px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.4s ease-in-out;
+}
+a {
+  border-radius: 10px;
+  color:  #36454A;
+  background: -webkit-linear-gradient(top, #A4D3E0 , #A4D3E0 50%, #CBE3EB 50%);
+  background: -o-linear-gradient(top, #A4D3E0 , #A4D3E0 50%, #CBE3EB 50%);
+  background: linear-gradient(to top, #A4D3E0 , #A4D3E0 50%, #CBE3EB 50%);
+  box-shadow: 2px 2px 3px black;
+}
+ a:hover {
+  background: -webkit-linear-gradient(bottom, #A4D3E0 , #A4D3E0 50%, #CBE3EB 50%);
+  background: -o-linear-gradient(bottom, #A4D3E0 , #A4D3E0 50%, #CBE3EB 50%);
+  background: linear-gradient(to bottom, #A4D3E0 , #A4D3E0 50%, #CBE3EB 50%);
+}
 
-
-
+//кнопки
 button:hover,
 button:focus {
   color: #999;
@@ -85,4 +110,68 @@ input.ng-touched.ng-valid {border:solid green 2px;}
 
 .error_input{
   color: red;
+}
+
+// таблица
+th {
+  font-size: 13px;
+  font-weight: normal;
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  color: #039;
+  padding: 8px;
+}
+td {
+  background: #e8edff;
+  border-bottom: 1px solid #fff;
+  color: #669;
+  border-top: 1px solid transparent;
+  padding: 8px;
+}
+tr:hover td {background: #ccddff;}
+
+
+
+
+
+.formCredit{
+  width: 500px;
+  margin: 20px auto;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+fieldset{
+  border: 3px double #ccc;
+  border-radius: 3px;
+  margin: 20px 0;
+  padding: 20px;
+  background: #f7f7f7;
+}
+legend{
+  background: #bfe0f5;
+  border-radius: 3px;
+}
+table{
+  margin: auto;
+}
+
+
+
+
+button {
+	overflow: hidden;
+	font-family: 'Montserrat Alternates', sans-serif;
+    text-transform: uppercase;
+	outline: none;
+    cursor: pointer;
+}
+
+.btn_form{
+  padding: 5px 10px;
+	margin: 0 10px;
+}
+.btn_form1{
+  padding: 5px 10px;
+	margin-right: 10px;
 }

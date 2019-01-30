@@ -1,6 +1,6 @@
-<form [formGroup]="creditForm">
+<form [formGroup]="creditForm" class="formCredit">
   <fieldset>
-  <legend class="offer">Credit Form:</legend>
+  <legend>Credit Form:</legend>
   <div>
     <label>
       Amount of credit:
@@ -12,29 +12,48 @@
     </label>
     <label>
         Percent of credict:
-        <input type="text" formControlName="percentOfCredit"><br>
+        <input type="text" formControlName="percentOfCredit"> %<br>
     </label>
     <label>
-      Date of starting pays:
-      <input type="text" formControlName="startingDate" [dpDayPicker]="config" theme="dp-material"><br>
+      Date of starting credit:
+      <input type="text" formControlName="startingDate" #dateDirectivePicker="dpDayPicker" [dpDayPicker]="config" theme="dp-material"><br>
     </label>
     <br>
-    <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.required">Required amount of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.required && creditForm.controls['amountOfCredit'].touched">Required amount of credit</div>
     <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.min">Minimum value of credit is 0</div>
 
-    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.required">Required time of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.required && creditForm.controls['timeOfCredit'].touched">Required time of credit</div>
     <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.min">Minimum time of credit is 1 mounth</div>
     <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.max">Maximum time of credit is 360</div>
 
-    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.required">Required time of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.required && creditForm.controls['percentOfCredit'].touched">Required time of credit</div>
     <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.min">Minimum percent is 0</div>
     <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.max">Maximum percent is 100</div>
     <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.patter">Incorrect percent</div>
 
 
     <div class="error_input" *ngIf="creditForm.controls['startingDate'].errors && creditForm.controls['startingDate'].errors.required && creditForm.controls['startingDate'].touched">Required date of starting credit</div>
-    <button>Calculate</button>
-    <button (click)="clearForm(creditForm)">Clear</button>
+    <button class="btn_form1" (click)="calculateCredit(creditForm)">Calculate</button>
+    <button class="btn_form" (click)="clearForm(creditForm)">Clear</button>
   </div>
 </fieldset>
 </form>
+<br>
+<table *ngIf="creditMas?.length>0">
+  <tr>
+    <th>№ платежа</th>
+    <th>Дата платежа</th>
+    <th>Платеж (c процентами)</th>
+    <th>Основной долг</th>
+    <th>Начисленные проценты</th>
+    <th>Остаток долга</th>
+  </tr>
+  <tr *ngFor="let credit of creditMas">
+      <td>{{credit.numOfPay}}</td>
+      <td>{{credit.dateOfPay | date:'d/MM/yy'}}</td>
+      <td>{{credit.pay | number:'.0-2'}}</td>
+      <td>{{credit.mainDebt | number:'.0-2'}}</td>
+      <td>{{credit.amountOfPercent | number:'.0-2'}}</td>
+      <td>{{credit.debtOfCredit | number:'.0-2'}}</td>
+  </tr>
+</table>
