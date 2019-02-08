@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background: #F5F5F5;
+}
+
 .calculator {
   width: 250px;
   height: 300px;
   border: 2px solid black;
   margin: 20px auto 0;
   text-align: center;
-  background-color: yellowgreen;
+  background-color: #87CEFA;
   box-shadow: 0 0 30px grey;
   border-radius: 4px;
 }
@@ -40,6 +44,7 @@
   border: none;
   transition: all .2s;
   text-transform: uppercase;
+  background:#F0F8FF;
 }
 
 .calculator__key--equal {
@@ -47,7 +52,7 @@
 }
 
 .calculator__key:hover {
-  background-color: yellow;
+  background-color: rgb(253, 253, 43);
   font-weight: 700;
 }
 
@@ -146,7 +151,7 @@ fieldset{
   border-radius: 3px;
   margin: 20px 0;
   padding: 20px;
-  background: #f7f7f7;
+  background: #bbccf6;
 }
 legend{
   background: #bfe0f5;

@@ -18,6 +18,14 @@
       Date of starting credit:
       <input type="text" formControlName="startingDate" #dateDirectivePicker="dpDayPicker" [dpDayPicker]="config" theme="dp-material"><br>
     </label>
+    <label>
+      Choose bank:
+      <select name="banks" formControlName="bankId">
+        <option [value]="bank.bankId" *ngFor="let bank of bankMas">
+          {{bank.bankName}}
+        </option>
+      </select>
+    </label>
     <br>
     <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.required && creditForm.controls['amountOfCredit'].touched">Required amount of credit</div>
     <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.min">Minimum value of credit is 0</div>
@@ -57,3 +65,4 @@
       <td>{{credit.debtOfCredit | number:'.0-2'}}</td>
   </tr>
 </table>
+<button class="btn_form" *ngIf="creditMas?.length>0" (click)="putAll(creditForm)">Save</button>
