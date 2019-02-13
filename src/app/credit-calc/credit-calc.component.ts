@@ -69,7 +69,8 @@ export class CreditCalcComponent implements OnInit {
   }
 
   getBanks(){
-    this._creditService.getBank().subscribe((result: BankData[])=>{this.bankMas = result;})
+    this._creditService.getBank().subscribe((result: BankData[])=>
+    {this.bankMas = result;})
   }
 
   ngOnInit() {

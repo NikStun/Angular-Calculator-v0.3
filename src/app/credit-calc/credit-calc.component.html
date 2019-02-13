@@ -46,8 +46,10 @@
   </div>
 </fieldset>
 </form>
+<a routerLink="allCredits">Show existing credits</a>
 <br>
-<table *ngIf="creditMas?.length>0">
+<div class="payments" *ngIf="creditMas?.length>0">
+<table>
   <tr>
     <th>№ платежа</th>
     <th>Дата платежа</th>
@@ -65,4 +67,6 @@
       <td>{{credit.debtOfCredit | number:'.0-2'}}</td>
   </tr>
 </table>
-<button class="btn_form" *ngIf="creditMas?.length>0" (click)="putAll(creditForm)">Save</button>
+<button class="btn_form" *ngIf="done==false" (click)="putAll(creditForm)">Save</button>
+<h2 class="suc-save" *ngIf="done==true">SUCCESS!</h2>
+</div>

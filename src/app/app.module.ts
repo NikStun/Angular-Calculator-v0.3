@@ -20,12 +20,16 @@ import { CreditCalcComponent } from './credit-calc/credit-calc.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CalcContainerComponent } from './calc-container/calc-container.component';
+import { DBCreditsComponent } from './db-comps/db-credits/db-credits.component';
+import { DbPaymentsComponent } from './db-comps/db-payments/db-payments.component';
 
 
 const appRoutes: Routes = [
   {path:'', redirectTo: 'calc', pathMatch: 'full'},
   {path: 'calc', component: CalcContainerComponent},
   {path: 'credit', component: CreditCalcComponent},
+  {path: 'credit/allCredits', component: DBCreditsComponent},
+  {path: 'credit/allCredits/payments/:id', component: DbPaymentsComponent},
   {path: '**', component: PageNotFoundComponent}
   ];
 
@@ -39,6 +43,8 @@ const appRoutes: Routes = [
     CreditCalcComponent,
     PageNotFoundComponent,
     CalcContainerComponent,
+    DBCreditsComponent,
+    DbPaymentsComponent,
   ],
   imports: [
     NgxMaskModule.forRoot(),

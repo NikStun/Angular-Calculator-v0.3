@@ -1,0 +1,19 @@
+<a routerLink="../../../allCredits">Back</a>
+<table *ngIf="payments?.length>0">
+  <tr>
+      <th>№ платежа</th>
+      <th>Дата платежа</th>
+      <th>Платеж (c процентами)</th>
+      <th>Основной долг</th>
+      <th>Начисленные проценты</th>
+      <th>Остаток долга</th>
+  </tr>
+  <tr *ngFor="let payment of payments">
+      <td>{{payment.numOdPay}}</td>
+      <td>{{payment.dateOfPay| date:'d/MM/yy'}}</td>
+      <td>{{payment.pay | number:'.0-2'}}</td>
+      <td>{{payment.mainDebt | number:'.0-2'}}</td>
+      <td>{{payment.amountOfPercent | number:'.0-2'}}</td>
+      <td>{{payment.debtOfCredit | number:'.0-2'}}</td>
+  </tr>
+</table>

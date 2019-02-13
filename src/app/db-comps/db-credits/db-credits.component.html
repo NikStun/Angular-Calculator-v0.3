@@ -1,0 +1,20 @@
+<a routerLink="../../credit">Back</a>
+<table *ngIf="credits?.length>0">
+  <tr>
+      <th>Номер кредита</th>
+      <th>ID банка</th>
+      <th>Сумма кредита</th>
+      <th>Период выплат(мес)</th>
+      <th>Процент по кредиту</th>
+      <th>Дата взятия</th>
+  </tr>
+  <tr *ngFor="let credit of credits">
+      <td>{{credit.id}}</td>
+      <td>{{credit.idBank}}</td>
+      <td>{{credit.amount}}</td>
+      <td>{{credit.paymentPeriod}}</td>
+      <td>{{credit.percent}}</td>
+      <td>{{credit.dateStarting| date:'d/MM/yy'}}</td>
+      <a [routerLink]="['payments', credit.idCredit]">Show details</a>
+  </tr>
+</table>
