@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetCreditsService, PaymentsData } from '../../services/get-credits.service';
+import { DbCreditsService, PaymentsData } from '../../services/db-credits.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class DbPaymentsComponent implements OnInit {
 
-  constructor(private _getCreditsService: GetCreditsService,
+  constructor(private _DbCreditsService: DbCreditsService,
               private _activateRoute: ActivatedRoute) {
                 this.subscription = _activateRoute.params.subscribe(params=>this.id=params['id']);
               }
@@ -21,7 +21,7 @@ export class DbPaymentsComponent implements OnInit {
   done = false;
 
   getPayments(idCredit){
-  this._getCreditsService.getPayments(idCredit)
+  this._DbCreditsService.getPayments(idCredit)
   .subscribe((result: PaymentsData[]) => {this.payments = result; this.done = true;});
   }
   ngOnInit() {

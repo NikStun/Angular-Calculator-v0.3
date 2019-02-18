@@ -22,6 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CalcContainerComponent } from './calc-container/calc-container.component';
 import { DBCreditsComponent } from './db-comps/db-credits/db-credits.component';
 import { DbPaymentsComponent } from './db-comps/db-payments/db-payments.component';
+import { DbCreditsService } from './services/db-credits.service';
 
 
 const appRoutes: Routes = [
@@ -56,7 +57,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     DpDatePickerModule
   ],
-  providers: [LocalStorageService, ExchangeRatesService, CurrencyService, CreditService],
+  providers: [LocalStorageService, ExchangeRatesService, CurrencyService, CreditService, DbCreditsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

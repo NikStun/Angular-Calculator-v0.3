@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetCreditsService, CreditData } from '../../services/get-credits.service';
+import { DbCreditsService, CreditData } from '../../services/db-credits.service';
 
 
 
@@ -10,7 +10,7 @@ import { GetCreditsService, CreditData } from '../../services/get-credits.servic
 })
 export class DBCreditsComponent implements OnInit {
 
-  constructor(private _getCreditsService: GetCreditsService) { }
+  constructor(private _DbCreditsService: DbCreditsService) { }
 
 
 
@@ -18,10 +18,15 @@ export class DBCreditsComponent implements OnInit {
   done = false;
 
   getCredits(){
-    this._getCreditsService.getCredits()
+    this._DbCreditsService.getCredits()
     .subscribe((result: CreditData[])=>{this.credits = result; this.done = true;});
   }
 
+  deleteCredit(idCredit){
+    this._DbCreditsService.deleteCredit(idCredit)
+    .subscribe();
+    this.getCredits();
+  }
   ngOnInit() {
     this.getCredits();
 

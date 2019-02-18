@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class GetCreditsService {
+export class DbCreditsService {
 
   constructor(private _http: HttpClient) { }
 
@@ -20,7 +19,12 @@ export class GetCreditsService {
     return this._http.get('http://localhost:3000/api/credit/payments', {params: params});
   }
 
+  deleteCredit(idCredit){
 
+    let params = new HttpParams().set('id', idCredit);
+
+    return this._http.delete('http://localhost:3000/api/credit', {params: params})
+  }
 
 }
 

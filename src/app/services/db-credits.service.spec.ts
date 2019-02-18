@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetCreditsService } from './get-credits.service';
+import { DbCreditsService } from './db-credits.service';
 
-describe('GetCreditsService', () => {
+describe('DbCreditsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GetCreditsService = TestBed.get(GetCreditsService);
+    const service: DbCreditsService = TestBed.get(DbCreditsService);
     expect(service).toBeTruthy();
   });
 });
