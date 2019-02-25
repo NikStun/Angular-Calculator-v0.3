@@ -19,6 +19,13 @@ export class DbCreditsService {
     return this._http.get('http://localhost:3000/api/credit/payments', {params: params});
   }
 
+  getOneCredit(idCredit){
+
+    let params = new HttpParams().set('id', idCredit);
+
+    return this._http.get('http://localhost:3000/api/credit', {params: params});
+  }
+
   deleteCredit(idCredit){
 
     let params = new HttpParams().set('id', idCredit);
@@ -35,7 +42,7 @@ export class CreditData{
   amount: number;
   paymentPeriod: number;
   percent: number;
-  dateStarting: Date;
+  dateStarting: string;
 }
 
 export class PaymentsData{

@@ -1,4 +1,57 @@
 <a routerLink="../../../allCredits">Back</a>
+
+<form [formGroup]="creditForm" class="formCredit">
+  <fieldset>
+  <legend>Credit Form:</legend>
+  <div>
+    <label>
+      Amount of credit:
+      <input type="text" formControlName="amountOfCredit" mask='0*'> RUB<br>
+    </label>
+    <label>
+      Time of credit in mounths:
+      <input type="text" formControlName="timeOfCredit" mask='0*'> mounths<br>
+    </label>
+    <label>
+        Percent of credict:
+        <input type="text" formControlName="percentOfCredit"> %<br>
+    </label>
+    <label>
+      Date of starting credit:
+      <input type="text" formControlName="startingDate" #dateDirectivePicker="dpDayPicker" [dpDayPicker]="config" theme="dp-material"><br>
+    </label>
+    <label>
+      Choose bank:
+      <select name="banks" formControlName="bankId">
+        <option [value]="bank.bankId" *ngFor="let bank of bankMas">
+          {{bank.bankName}}
+        </option>
+      </select>
+    </label>
+    <br>
+    <br>
+    <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.required && creditForm.controls['amountOfCredit'].touched">Required amount of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.min">Minimum value of credit is 0</div>
+
+    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.required && creditForm.controls['timeOfCredit'].touched">Required time of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.min">Minimum time of credit is 1 mounth</div>
+    <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.max">Maximum time of credit is 360</div>
+
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.required && creditForm.controls['percentOfCredit'].touched">Required time of credit</div>
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.min">Minimum percent is 0</div>
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.max">Maximum percent is 100</div>
+    <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.patter">Incorrect percent</div>
+
+
+    <div class="error_input" *ngIf="creditForm.controls['startingDate'].errors && creditForm.controls['startingDate'].errors.required && creditForm.controls['startingDate'].touched">Required date of starting credit</div>
+
+    <button class="btn_form1" (click)="calculateCredit(creditForm)">Calculate</button>
+    <button class="btn_form1" (click)="calculateCredit(creditForm)">Save</button>
+    <button class="btn_form" (click)="clearForm(creditForm)">Clear</button>
+  </div>
+</fieldset>
+</form>
+
 <table *ngIf="payments?.length>0">
   <tr>
       <th>№ платежа</th>
