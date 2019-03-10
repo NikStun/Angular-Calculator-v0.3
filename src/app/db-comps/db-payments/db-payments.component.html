@@ -46,12 +46,11 @@
     <div class="error_input" *ngIf="creditForm.controls['startingDate'].errors && creditForm.controls['startingDate'].errors.required && creditForm.controls['startingDate'].touched">Required date of starting credit</div>
 
     <button class="btn_form1" (click)="calculateCredit(creditForm)">Calculate</button>
-    <button class="btn_form1" (click)="calculateCredit(creditForm)">Save</button>
+    <button class="btn_form" *ngIf="isSaved==false" (click)="updateCredit()">Save</button>
     <button class="btn_form" (click)="clearForm(creditForm)">Clear</button>
   </div>
 </fieldset>
 </form>
-
 <table *ngIf="payments?.length>0">
   <tr>
       <th>№ платежа</th>
@@ -62,7 +61,7 @@
       <th>Остаток долга</th>
   </tr>
   <tr *ngFor="let payment of payments">
-      <td>{{payment.numOdPay}}</td>
+      <td>{{payment.numOfPay}}</td>
       <td>{{payment.dateOfPay| date:'d/MM/yy'}}</td>
       <td>{{payment.pay | number:'.0-2'}}</td>
       <td>{{payment.mainDebt | number:'.0-2'}}</td>
@@ -70,3 +69,4 @@
       <td>{{payment.debtOfCredit | number:'.0-2'}}</td>
   </tr>
 </table>
+<h2 class="suc-save" *ngIf="isSaved==true">SUCCESS!</h2>

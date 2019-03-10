@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IDatePickerConfig } from 'ng2-date-picker';
 import {DatePickerDirective} from 'ng2-date-picker';
 import { CreditService, BankData } from '../services/credit.service';
-import { CreditData } from '../services/credit.service';
+import { PaymentData } from '../services/credit.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class CreditCalcComponent implements OnInit {
     enableMonthSelector: true
   };
 
-  creditMas: CreditData[];
+  creditMas: PaymentData[];
   creditRes: Response;
   done: boolean = false;
   bankMas: BankData[];
@@ -52,6 +52,7 @@ export class CreditCalcComponent implements OnInit {
   clearForm(creditForm: FormGroup){
     this.creditForm.reset();
     this.creditMas = [];
+    this.done = false;
   }
 
 

@@ -32,7 +32,6 @@ export class DbCreditsService {
 
     return this._http.delete('http://localhost:3000/api/credit', {params: params})
   }
-
 }
 
 
@@ -45,11 +44,11 @@ export class CreditData{
   dateStarting: string;
 }
 
-export class PaymentsData{
-  numOdPay: number;
-  pay: number;
-  mainDebt: number;
-  amountOfPercent: number;
-  debtOfCredit: number;
-  dateOfPay: Date;
-}
+// export class PaymentsData{
+//   numOdPay: number;
+//   pay: number;
+//   mainDebt: number;
+//   amountOfPercent: number;
+//   debtOfCredit: number;
+//   dateOfPay: Date;
+// }

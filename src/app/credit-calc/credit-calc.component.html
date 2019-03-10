@@ -42,6 +42,7 @@
 
     <div class="error_input" *ngIf="creditForm.controls['startingDate'].errors && creditForm.controls['startingDate'].errors.required && creditForm.controls['startingDate'].touched">Required date of starting credit</div>
     <button class="btn_form1" (click)="calculateCredit(creditForm)">Calculate</button>
+    <button class="btn_form" *ngIf="done==false" (click)="putAll(creditForm)">Save</button>
     <button class="btn_form" (click)="clearForm(creditForm)">Clear</button>
   </div>
 </fieldset>
@@ -67,6 +68,5 @@
       <td>{{credit.debtOfCredit | number:'.0-2'}}</td>
   </tr>
 </table>
-<button class="btn_form" *ngIf="done==false" (click)="putAll(creditForm)">Save</button>
 <h2 class="suc-save" *ngIf="done==true">SUCCESS!</h2>
 </div>
