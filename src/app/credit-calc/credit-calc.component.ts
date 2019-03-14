@@ -5,6 +5,7 @@ import {DatePickerDirective} from 'ng2-date-picker';
 import { CreditService, BankData } from '../services/credit.service';
 import { PaymentData } from '../services/credit.service';
 import { AuthService } from '../services/auth.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-credit-calc',
@@ -28,7 +29,8 @@ export class CreditCalcComponent implements OnInit {
   bankMas: BankData[];
 
   constructor(private _creditService: CreditService,
-              private _authService: AuthService) {
+              private _authService: AuthService,
+              private _localStorageService: LocalStorageService) {
     this.creditForm = new FormGroup({
       amountOfCredit: new FormControl(0, [Validators.required, Validators.min(0)]),
       timeOfCredit: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(360)]),
@@ -59,12 +61,13 @@ export class CreditCalcComponent implements OnInit {
 
 
   putAll(creditForm: FormGroup){
+  let idUser = this._localStorageService.getIdUser();
   let dateOfCredit = this.creditForm.controls['startingDate'].value.split('.');
   let day = dateOfCredit[0];
   let month = dateOfCredit[1];
   let year = dateOfCredit[2];
   let modifiedDate = year + '-' + month + '-' + day;
-    this._creditService.putCredit(this.creditForm.controls['bankId'].value, this.creditForm.controls['amountOfCredit'].value, this.creditForm.controls['timeOfCredit'].value, this.creditForm.controls['percentOfCredit'].value, modifiedDate, this.creditMas)
+    this._creditService.putCredit(this.creditForm.controls['bankId'].value, this.creditForm.controls['amountOfCredit'].value, this.creditForm.controls['timeOfCredit'].value, this.creditForm.controls['percentOfCredit'].value, modifiedDate, idUser, this.creditMas)
     .subscribe((data: Response)=>{this.creditRes = data; this.done=true;}),
      error => console.log(error);
   }

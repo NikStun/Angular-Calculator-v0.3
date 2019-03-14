@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { IdUser } from './auth.service';
+import { LocalStorageService } from './local-storage.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -51,8 +53,8 @@ export class CreditService {
     return dateOfNextMonth;
   }
 
-  putCredit(bankId: number, amountCredit: number, timeCredit: number, percentCredit: number, startingDate: string, creditMas: PaymentData[]){
-    let creditAndPayments = {id_bank: bankId, amount: amountCredit, period: timeCredit, percent: percentCredit, date: startingDate, payments: creditMas};
+  putCredit(bankId: number, amountCredit: number, timeCredit: number, percentCredit: number, startingDate: string, idUser: number, creditMas: PaymentData[]){
+    let creditAndPayments = {id_bank: bankId, amount: amountCredit, period: timeCredit, percent: percentCredit, date: startingDate, id_user: idUser, payments: creditMas};
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.set('Accept', 'application/json');
     headers = headers.set('Content-Type', 'application/json');

@@ -23,7 +23,7 @@ export class AuthFormComponent implements OnInit {
     this._authService.getUser(myForm.value.login, myForm.value.password).subscribe((result: IdUser)=>{
       this.idUser = result; if(this.idUser.status == 1){
         this.router.navigate(['/credit']);
-        this._localStorageService.setIdUserToHistory(this.idUser.id);
+        this._localStorageService.setIdUser(this.idUser.id);
       } else {
        this.isWrongData = true;
       }

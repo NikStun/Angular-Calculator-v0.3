@@ -35,7 +35,7 @@ export class LocalStorageService {
       this.setItemToStorage();
   }
 
-  public setIdUserToHistory (idUser){
+  public setIdUser (idUser){
     localStorage.setItem('IdUser', JSON.stringify(idUser));
   }
 
