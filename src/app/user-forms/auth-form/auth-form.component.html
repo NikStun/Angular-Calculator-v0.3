@@ -10,4 +10,7 @@
 </form>
 <div class="error_input" *ngIf="myForm.invalid && myForm.touched">Required all fields!</div>
 <div class="error_input" *ngIf="isWrongData==true">Wrong Login or Password!</div>
-<button [disabled]="myForm.invalid" class="btn_form" (click)="submit(myForm)">Join</button>
+<div>
+<button [disabled]="myForm.invalid" class="btn_form" (click)="submit(myForm)">SIGN IN</button> or
+<button class="btn_form" (click)="referenceToReg()">SIGN UP</button>
+</div>

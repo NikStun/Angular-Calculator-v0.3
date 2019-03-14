@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService, IdUser } from '../services/auth.service';
+import { AuthService, IdUser } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { LocalStorageService } from '../services/local-storage.service';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-auth-form',
@@ -30,7 +30,9 @@ export class AuthFormComponent implements OnInit {
     })
   }
 
-
+  referenceToReg(){
+    this.router.navigate(['/reg']);
+  }
 
   ngOnInit() {
   }

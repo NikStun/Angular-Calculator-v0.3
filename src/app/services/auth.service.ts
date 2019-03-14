@@ -25,6 +25,16 @@ export class AuthService {
     return this._http.post('http://localhost:3000/api/user', JSON.stringify(userData), options);
   }
 
+  createUser(loginForm, passwordForm){
+    let userData = {login: loginForm, password: passwordForm};
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.set('Accept', 'application/json');
+    headers = headers.set('Content-Type', 'application/json');
+    let options = {
+            headers: headers
+        };
+    return this._http.put('http://localhost:3000/api/user', JSON.stringify(userData), options);
+  }
   exit(){
     this._localStorageService.removeIdUser();
     this.router.navigate(['/auth']);
