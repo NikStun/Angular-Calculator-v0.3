@@ -4,7 +4,7 @@ import { IDatePickerConfig } from 'ng2-date-picker';
 import {DatePickerDirective} from 'ng2-date-picker';
 import { CreditService, BankData } from '../services/credit.service';
 import { PaymentData } from '../services/credit.service';
-
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-credit-calc',
@@ -27,7 +27,8 @@ export class CreditCalcComponent implements OnInit {
   done: boolean = false;
   bankMas: BankData[];
 
-  constructor(private _creditService: CreditService) {
+  constructor(private _creditService: CreditService,
+              private _authService: AuthService) {
     this.creditForm = new FormGroup({
       amountOfCredit: new FormControl(0, [Validators.required, Validators.min(0)]),
       timeOfCredit: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(360)]),
@@ -57,7 +58,6 @@ export class CreditCalcComponent implements OnInit {
 
 
 
-
   putAll(creditForm: FormGroup){
   let dateOfCredit = this.creditForm.controls['startingDate'].value.split('.');
   let day = dateOfCredit[0];
@@ -72,6 +72,11 @@ export class CreditCalcComponent implements OnInit {
   getBanks(){
     this._creditService.getBank().subscribe((result: BankData[])=>
     {this.bankMas = result;})
+  }
+
+
+  exit(){
+    this._authService.exit();
   }
 
   ngOnInit() {

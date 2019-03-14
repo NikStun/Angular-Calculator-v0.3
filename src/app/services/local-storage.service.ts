@@ -35,5 +35,19 @@ export class LocalStorageService {
       this.setItemToStorage();
   }
 
-  constructor() { }
+  public setIdUserToHistory (idUser){
+    localStorage.setItem('IdUser', JSON.stringify(idUser));
+  }
+
+  public getIdUser(){
+    const idJson = localStorage.getItem('IdUser');
+    let id = JSON.parse(idJson);
+    return id;
+  }
+
+  public removeIdUser(){
+    localStorage.removeItem('IdUser');
+  }
+
+  constructor() {}
 }

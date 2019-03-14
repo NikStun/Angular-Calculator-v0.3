@@ -24,13 +24,17 @@ import { DBCreditsComponent } from './db-comps/db-credits/db-credits.component';
 import { DbPaymentsComponent } from './db-comps/db-payments/db-payments.component';
 import { DbCreditsService } from './services/db-credits.service';
 
+import { AuthGuard } from '../app/auth.guard';
+import { AuthFormComponent } from './auth-form/auth-form.component';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   {path:'', redirectTo: 'calc', pathMatch: 'full'},
   {path: 'calc', component: CalcContainerComponent},
-  {path: 'credit', component: CreditCalcComponent},
+  {path: 'credit', component: CreditCalcComponent, canActivate: [AuthGuard]},
   {path: 'credit/allCredits', component: DBCreditsComponent},
   {path: 'credit/allCredits/payments/:id', component: DbPaymentsComponent},
+  {path: 'auth', component: AuthFormComponent},
   {path: '**', component: PageNotFoundComponent}
   ];
 
@@ -46,6 +50,7 @@ const appRoutes: Routes = [
     CalcContainerComponent,
     DBCreditsComponent,
     DbPaymentsComponent,
+    AuthFormComponent,
   ],
   imports: [
     NgxMaskModule.forRoot(),
@@ -57,7 +62,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     DpDatePickerModule
   ],
-  providers: [LocalStorageService, ExchangeRatesService, CurrencyService, CreditService, DbCreditsService],
+  providers: [LocalStorageService, ExchangeRatesService, CurrencyService, CreditService, DbCreditsService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

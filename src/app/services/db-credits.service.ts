@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbCreditsService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,
+              private _localStorageService: LocalStorageService) { }
 
   getCredits(){
-    return this._http.get('http://localhost:3000/api/credits');
+    let idUser = this._localStorageService.getIdUser();
+    let params = new HttpParams().set('id', idUser);
+
+    return this._http.get('http://localhost:3000/api/credits', {params: params});
   }
 
   getPayments(idCredit){
