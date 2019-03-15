@@ -1,7 +1,7 @@
 <br>
 <form [formGroup]="convertForm">
   <fieldset>
-  <legend class="offer">Change currency and type of conversion:</legend>
+  <legend>Change currency and type of conversion:</legend>
     <div *ngFor="let item of _currencyService.rates">
       <input type="radio" name="radioButton" [value]="item.charCode" formControlName="radioButton">
       <label for="radioButton">{{item.charCode}} = {{item.value}}</label>
@@ -17,9 +17,9 @@
       <div class="error_input" *ngIf="convertForm.controls['radioButton'].errors && convertForm.controls['radioButton'].errors.required && convertForm.controls['radioButton'].touched">Required currency</div>
 
   <br>
-  <button class="btn_form1" (click)="directConversion(convertForm)">direct convert</button>
-  <button class="btn_form" (click)="reverseConversion(convertForm)">reverse convert</button>
-  <button class="btn_form" (click)="clearForm(convertForm)">Clear</button>
+  <button class="btn btn-primary mr-3" (click)="directConversion(convertForm)">direct convert</button>
+  <button class="btn btn-primary mr-3" (click)="reverseConversion(convertForm)">reverse convert</button>
+  <button class="btn btn-outline-primary" (click)="clearForm(convertForm)">Clear</button>
   </div>
 </fieldset>
 </form>

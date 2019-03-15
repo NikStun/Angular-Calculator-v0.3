@@ -1,16 +1,21 @@
-<form #myForm="ngForm" novalidate>
-  <div class="form-group">
-      <label>Login</label>
-      <input class="form-control" name="login" [(ngModel)]="login" required />
+<div class="mx-auto" style="width: 300px;">
+<form #myForm="ngForm" novalidate >
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <label for="inputlogin">Login</label>
+      <input class="form-control" name="login" placeholder="Enter login" id="inputLogin" [(ngModel)]="login" required />
+      </div>
   </div>
-  <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" name="password" [(ngModel)]="password" required  />
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Enter Password" id="inputPassword" [(ngModel)]="password" required  />
+    </div>
   </div>
 </form>
 <div class="error_input" *ngIf="myForm.invalid && myForm.touched">Required all fields!</div>
 <div class="error_input" *ngIf="isWrongData==true">Wrong Login or Password!</div>
-<div>
-<button [disabled]="myForm.invalid" class="btn_form" (click)="submit(myForm)">SIGN IN</button> or
-<button class="btn_form" (click)="referenceToReg()">SIGN UP</button>
-</div>
+
+<button [disabled]="myForm.invalid" class="btn btn-primary mr-3" (click)="submit(myForm)">SIGN IN</button> or
+<button class="btn btn-primary ml-3" (click)="referenceToReg()">SIGN UP</button>
+  </div>

@@ -2,8 +2,8 @@
   <div>
     <div *ngFor="let item of _localStorageService.historyItems">
       {{item.expression}}={{item.result}}
-      <button class="clear_note" (click)="clearNote(item)">X</button>
+      <button class="btn btn-secondary btn-sm" (click)="clearNote(item)">X</button>
     </div>
   </div>
 </div>
-<button class="btn_form" (click)="clearAll()">CLEAR ALL</button>
+<button class="btn btn-primary" (click)="clearAll()">CLEAR ALL</button>
