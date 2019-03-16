@@ -8,22 +8,30 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./calc-converter.component.scss']
 })
 export class CalcConverterComponent implements OnInit {
+
   resultCurrencyCode: string;
   convertForm: FormGroup;
   result: number;
+  isResult: boolean;
 
   directConversion(convertForm: FormGroup){
    this.convertForm.markAsTouched();
    this.resultCurrencyCode = this.convertForm.controls['radioButton'].value;
    if(this.convertForm.valid){
+   this.isResult = true;
    return this.result = this._currencyService.directConversion(this.convertForm.controls['radioButton'].value, this.convertForm.controls['amountField'].value);
+   } else{
+     return this.isResult = false;
    }
   }
   reverseConversion(convertForm: FormGroup){
     this.convertForm.markAsTouched();
     this.resultCurrencyCode = "RUB ";
     if(this.convertForm.valid){
+      this.isResult = true;
      return this.result = this._currencyService.reverseConversion(this.convertForm.controls['radioButton'].value, this.convertForm.controls['amountField'].value);
+    } else{
+      return this.isResult = false;
     }
    }
    clearForm(convertForm: FormGroup){

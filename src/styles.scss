@@ -15,7 +15,7 @@ text-transform: uppercase;
   border: 2px solid black;
   margin: 20px auto 0;
   text-align: center;
-  background-color: #87CEFA;
+  background-color: #2b84ee;
   box-shadow: 0 0 30px grey;
   border-radius: 4px;
 }
@@ -75,7 +75,13 @@ text-transform: uppercase;
 }
 
 
+.row-50{
+  height: 50px;
+}
 
+.amount-money{
+  color: #35c251;
+}
 
 input.ng-touched.ng-invalid {border:solid red 2px;}
 input.ng-touched.ng-valid {border:solid green 2px;}
