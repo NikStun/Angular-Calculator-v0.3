@@ -11,7 +11,6 @@ import { LocalStorageService } from '../../services/local-storage.service';
 })
 export class AuthFormComponent implements OnInit {
 
-
   constructor(private _authService: AuthService,
               private router: Router,
               private _localStorageService: LocalStorageService) { }
@@ -24,6 +23,8 @@ export class AuthFormComponent implements OnInit {
       this.idUser = result; if(this.idUser.status == 1){
         this.router.navigate(['/credit']);
         this._localStorageService.setIdUser(this.idUser.id);
+        this._authService.userLogin = myForm.value.login;
+
       } else {
        this.isWrongData = true;
       }

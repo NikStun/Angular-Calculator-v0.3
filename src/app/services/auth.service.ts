@@ -12,6 +12,7 @@ export class AuthService {
               private router: Router,
               private _localStorageService: LocalStorageService) { }
 
+  public userLogin: string;
 
 
   getUser(loginForm, passwordForm){

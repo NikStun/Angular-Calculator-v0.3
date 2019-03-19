@@ -18,8 +18,7 @@
                         <div class="input-group-append">
                           <span class="input-group-text">.00</span>
                         </div>
-                      </div>
-                   <!-- <input type="text" class="form-control form-control-sm"  id="input-amountOfCredit" formControlName="amountOfCredit" mask='0*'> -->
+                    </div>
                   </div>
                 </div>
                <div class="form-group row">
@@ -60,20 +59,19 @@
                     </select>
                   </div>
                 </div>
-                <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.required && creditForm.controls['amountOfCredit'].touched">Required amount of credit</div>
-                <div class="error_input" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.min">Minimum value of credit is 0</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.required && creditForm.controls['amountOfCredit'].touched">Required amount of credit</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['amountOfCredit'].errors && creditForm.controls['amountOfCredit'].errors.min">Minimum value of credit is 0</div>
 
-                <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.required && creditForm.controls['timeOfCredit'].touched">Required time of credit</div>
-                <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.min">Minimum time of credit is 1 mounth</div>
-                <div class="error_input" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.max">Maximum time of credit is 360</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.required && creditForm.controls['timeOfCredit'].touched">Required time of credit</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.min">Minimum time of credit is 1 mounth</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['timeOfCredit'].errors && creditForm.controls['timeOfCredit'].errors.max">Maximum time of credit is 360</div>
 
-                <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.required && creditForm.controls['percentOfCredit'].touched">Required time of credit</div>
-                <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.min">Minimum percent is 0</div>
-                <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.max">Maximum percent is 100</div>
-                <div class="error_input" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.patter">Incorrect percent</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.required && creditForm.controls['percentOfCredit'].touched">Required time of credit</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.min">Minimum percent is 0</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.max">Maximum percent is 100</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['percentOfCredit'].errors && creditForm.controls['percentOfCredit'].errors.patter">Incorrect percent</div>
 
-
-                <div class="error_input" *ngIf="creditForm.controls['startingDate'].errors && creditForm.controls['startingDate'].errors.required && creditForm.controls['startingDate'].touched">Required date of starting credit</div>
+                <div class="alert alert-danger" *ngIf="creditForm.controls['startingDate'].errors && creditForm.controls['startingDate'].errors.required && creditForm.controls['startingDate'].touched">Required date of starting credit</div>
                 <br>
                 <button class="btn btn-primary mr-4" (click)="calculateCredit(creditForm)">Calculate</button>
                 <button class="btn btn-success mr-4" *ngIf="done==false" (click)="putAll(creditForm)">Save</button>

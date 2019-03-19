@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DbCreditsService, CreditData } from '../../services/db-credits.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 
@@ -10,12 +11,15 @@ import { DbCreditsService, CreditData } from '../../services/db-credits.service'
 })
 export class DBCreditsComponent implements OnInit {
 
-  constructor(private _DbCreditsService: DbCreditsService) { }
+  constructor(private _DbCreditsService: DbCreditsService,
+              private _authService: AuthService) { }
 
 
 
   credits : CreditData[] = [];
   done = false;
+  userLogin = this._authService.userLogin;
+
 
   getCredits(){
     this._DbCreditsService.getCredits()

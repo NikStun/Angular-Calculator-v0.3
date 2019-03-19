@@ -23,6 +23,7 @@ export class CreditCalcComponent implements OnInit {
     enableMonthSelector: true
   };
 
+  userLogin = this._authService.userLogin;
   creditMas: PaymentData[];
   creditRes: Response;
   done: boolean = false;
