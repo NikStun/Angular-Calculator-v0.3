@@ -3,13 +3,13 @@
       <div class="form-group row">
         <div class="col-sm-12">
           <label for="inputlogin">Login</label>
-          <input class="form-control" name="login" placeholder="Enter login" id="inputLogin" [(ngModel)]="login" required #log="ngModel" />
+          <input class="form-control" name="login" placeholder="Enter login" id="inputLogin" ngModel required />
           </div>
       </div>
       <div class="form-group row">
         <div class="col-sm-12">
           <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Enter Password" id="inputPassword" [(ngModel)]="password" required minlength="8" #pass="ngModel"/>
+          <input type="password" class="form-control" name="password" placeholder="Enter Password" id="inputPassword" ngModel required minlength="8" #pass="ngModel"/>
         </div>
       </div>
     </form>

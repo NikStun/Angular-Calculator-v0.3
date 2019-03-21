@@ -61,7 +61,7 @@ export class CreditService {
     let options = {
             headers: headers
         };
-    return this._http.put('http://localhost:3000/api/credit', JSON.stringify(creditAndPayments), options);
+    return this._http.put('https://api-credit-base.herokuapp.com/api/credit', JSON.stringify(creditAndPayments), options);
   }
 
   updateCredit(idCredit: number, bankId: number, amountCredit: number, timeCredit: number, percentCredit: number, startingDate: string, creditMas: PaymentData[]){
@@ -72,11 +72,11 @@ export class CreditService {
     let options = {
             headers: headers
         };
-    return this._http.post('http://localhost:3000/api/credit', JSON.stringify(creditAndPayments), options);
+    return this._http.post('https://api-credit-base.herokuapp.com/api/credit', JSON.stringify(creditAndPayments), options);
   }
 
   getBank(){
-    return this._http.get('http://localhost:3000/api/banks');
+    return this._http.get('https://api-credit-base.herokuapp.com/api/banks');
   }
 
 

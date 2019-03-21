@@ -8,7 +8,7 @@ import { ExecExp2Event } from '../calc/calc/calc.component';
   styleUrls: ['./calc-his.component.scss']
 })
 export class CalcHisComponent implements OnInit {
-  constructor(private _localStorageService: LocalStorageService){}
+  constructor(public _localStorageService: LocalStorageService){}
   addToHistory(item: ExecExp2Event){
     this._localStorageService.addToHistory(item);
   }

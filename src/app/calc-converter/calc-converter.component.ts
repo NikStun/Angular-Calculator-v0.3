@@ -39,7 +39,7 @@ export class CalcConverterComponent implements OnInit {
     delete this.result;
 
    }
-  constructor(private _currencyService: CurrencyService) {
+  constructor(public _currencyService: CurrencyService) {
     this.convertForm = new FormGroup({
       radioButton: new FormControl('', Validators.required),
       amountField: new FormControl(0, [Validators.required, Validators.min(0), Validators.pattern('^[0-9]*[.,]?[0-9]+$')])
