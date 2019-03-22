@@ -1,1 +1,1 @@
-<button type="button" class="calculator__key" [class.calculator__button]="codeBtn == 0" [class.calculator__key--equal]="codeBtn == 1" [class.calculator__key--backspase]="codeBtn == 2" [class.calculator__clear]="codeBtn == 3"  (click)="onClick($event)">{{nameBut}}</button>
+<input class="form-group btn bttn" type="button" [class.btn-light]="codeBtn == 0" [class.btn-success]="codeBtn==1" [class.btn-primary]="codeBtn==2" [class.btn-info]="codeBtn==3" [class.btn-danger]="codeBtn==4"  (click)="onClick($event)" value="{{nameBut}}">

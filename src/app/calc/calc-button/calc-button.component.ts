@@ -25,6 +25,7 @@ export enum OperationCode {
   enter = 1,
   backspace = 2,
   clear = 3,
+  operation = 4
 };
 export class lables  {
   public label: string;
