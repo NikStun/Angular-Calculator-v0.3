@@ -46,6 +46,7 @@ export class DbPaymentsComponent implements OnInit {
   donePayments = false;
   doneCredit = false;
   isSaved = false;
+  isCalculated = false;
   bankMas: BankData[] = [];
   creditRes: Response;
 
@@ -87,6 +88,7 @@ export class DbPaymentsComponent implements OnInit {
       let month = parseInt(date[1]);
       let year = parseInt(date[2]);
       let modifiedDate = new Date(year,month-1,day);
+      this.isCalculated = true;
 
      return this.payments = this._creditService.calculateCredit(this.creditForm.controls['amountOfCredit'].value, this.creditForm.controls['timeOfCredit'].value, this.creditForm.controls['percentOfCredit'].value, modifiedDate);
     }

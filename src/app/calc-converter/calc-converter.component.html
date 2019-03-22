@@ -24,9 +24,9 @@
                   <div class="alert alert-danger" *ngIf="convertForm.controls['amountField'].errors && convertForm.controls['amountField'].errors.pattern">Incorrect value</div>
                   <div class="alert alert-danger" *ngIf="convertForm.controls['amountField'].errors && convertForm.controls['amountField'].errors.min">Minimum value is 0</div>
                   <div class="alert alert-danger" *ngIf="convertForm.controls['radioButton'].errors && convertForm.controls['radioButton'].errors.required && isResult==false">Required currency</div>
-                <button class="btn btn-primary mr-3" (click)="directConversion(convertForm)">direct convert</button>
-                <button class="btn btn-primary mr-3" (click)="reverseConversion(convertForm)">reverse convert</button>
-                <button class="btn btn-outline-primary" (click)="clearForm(convertForm)">Clear</button>
+                <button class="btn btn-primary mr-3 mb-1" (click)="directConversion(convertForm)">direct convert</button>
+                <button class="btn btn-primary mr-3 mb-1" (click)="reverseConversion(convertForm)">reverse convert</button>
+                <button class="btn btn-outline-primary mb-1" (click)="clearForm(convertForm)">Clear</button>
               </form>
           </div>
       </div>

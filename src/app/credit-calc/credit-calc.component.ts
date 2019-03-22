@@ -28,6 +28,7 @@ export class CreditCalcComponent implements OnInit {
   creditRes: Response;
   done: boolean = false;
   bankMas: BankData[];
+  isCalculated = false;
 
   constructor(private _creditService: CreditService,
               private _authService: AuthService,
@@ -48,14 +49,16 @@ export class CreditCalcComponent implements OnInit {
       let month = parseInt(date[1]);
       let year = parseInt(date[2]);
       let modifiedDate = new Date(year,month-1,day);
+      this.isCalculated = true;
 
-    return this.creditMas = this._creditService.calculateCredit(this.creditForm.controls['amountOfCredit'].value, this.creditForm.controls['timeOfCredit'].value, this.creditForm.controls['percentOfCredit'].value,modifiedDate);
+    return this.creditMas = this._creditService.calculateCredit(this.creditForm.controls['amountOfCredit'].value, this.creditForm.controls['timeOfCredit'].value, this.creditForm.controls['percentOfCredit'].value, modifiedDate);
     }
   }
 
   clearForm(creditForm: FormGroup){
     this.creditForm.reset();
     this.creditMas = [];
+    this.isCalculated = false
     this.done = false;
   }
 
