@@ -2,19 +2,19 @@
   <div class="row">
     <div class="col-lg-6 col-md-12 col-sm-12 col-12">
       <div class="card border-primary mb-3">
-        <h5 class="card-header text-white bg-primary">Change currency and type of conversion:</h5>
+        <h4 class="card-header text-white bg-primary">Currency Converter</h4>
           <div class="card-body">
               <form [formGroup]="convertForm">
                 <div *ngFor="let item of _currencyService.rates" class="form-check">
                     <input type="radio" class="form-check-input" name="radioButton" [value]="item.charCode" formControlName="radioButton">
-                    <label for="radioButton">{{item.charCode}}: {{item.value}}</label>
+                    <label for="radioButton"><h5 class="h5">{{item.charCode}}: {{item.value}}</h5></label>
                   </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-6 col-6 pr-0">
                       <label for="inputAmount">Amount to convert:</label>
                     </div>
                     <div class="col-lg-3 col-md-auto col-sm-6 col-6 pl-0 pr-0">
-                      <input type="text" class="form-control" id="inputAmount" formControlName="amountField"><br>
+                      <input type="text" class="form-control" id="inputAmount" placeholder="Enter amount" formControlName="amountField"><br>
                     </div>
                     <div class="col-md-auto col-sm-12 col-12">
                       <h4 class="amount-money" *ngIf="isResult==true"> {{result | currency:resultCurrencyCode}}</h4>

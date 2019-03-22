@@ -9,8 +9,9 @@ import { ExecExp2Event } from '../calc/calc/calc.component';
 })
 export class CalcHisComponent implements OnInit {
   constructor(public _localStorageService: LocalStorageService){}
+
   addToHistory(item: ExecExp2Event){
-    this._localStorageService.addToHistory(item);
+      this._localStorageService.addToHistory(item);
   }
   clearAll(){
     this._localStorageService.clearAll();

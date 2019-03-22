@@ -6,6 +6,7 @@ import { lables, OperationCode } from '../calc-button/calc-button.component';
   styleUrls: ['./output-window.component.scss']
 })
 export class OutputWindowComponent implements OnInit {
+
   masKeys: string[] = ['+','-','*','/', '0','1','2','3','4','5','6','7','8','9','(',')',];
   @Input()public expressionValue: string;
   @Output() clickSymb = new EventEmitter<lables>();
