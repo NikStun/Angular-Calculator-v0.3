@@ -44,10 +44,10 @@ export class CreditCalcComponent implements OnInit {
 
   calculateCredit(creditForm: FormGroup){
     if(creditForm.valid){
-      let date = this.creditForm.controls['startingDate'].value.split('.');
-      let day = parseInt(date[0]);
-      let month = parseInt(date[1]);
-      let year = parseInt(date[2]);
+      let date = this.creditForm.controls['startingDate'].value.split('.'),
+      day = parseInt(date[0]),
+      month = parseInt(date[1]),
+      year = parseInt(date[2]);
       let modifiedDate = new Date(year,month-1,day);
       this.isCalculated = true;
 

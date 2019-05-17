@@ -28,6 +28,7 @@ import { AuthGuard } from '../app/auth.guard';
 import { AuthFormComponent } from '../app/user-forms/auth-form/auth-form.component';
 import { AuthService } from './services/auth.service';
 import { RegFormComponent } from '../app/user-forms/reg-form/reg-form.component';
+import { SavingsCreditsComponent } from './savings-credits/savings-credits.component';
 
 const appRoutes: Routes = [
   {path:'', redirectTo: 'calc', pathMatch: 'full'},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
   {path: 'credit/allCredits/payments/:id', component: DbPaymentsComponent},
   {path: 'auth', component: AuthFormComponent},
   {path: 'reg', component: RegFormComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: 'credit/allCredits/savings', component: SavingsCreditsComponent},
+  {path: '**', component: PageNotFoundComponent},
   ];
 
 
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     DbPaymentsComponent,
     AuthFormComponent,
     RegFormComponent,
+    SavingsCreditsComponent,
   ],
   imports: [
     NgxMaskModule.forRoot(),

@@ -37,6 +37,12 @@ export class DbCreditsService {
 
     return this._http.delete('https://api-credit-base.herokuapp.com/api/credit', {params: params})
   }
+  getPaysOfCredits(){
+    let idUser = this._localStorageService.getIdUser();
+    let params = new HttpParams().set('id', idUser);
+    return this._http.get('http://localhost:3000/api/credit/payment', {params: params});
+  }
+
 }
 
 
@@ -49,11 +55,12 @@ export class CreditData{
   dateStarting: string;
 }
 
-// export class PaymentsData{
-//   numOdPay: number;
-//   pay: number;
-//   mainDebt: number;
-//   amountOfPercent: number;
-//   debtOfCredit: number;
-//   dateOfPay: Date;
-// }
+ export class PaysWithCreditsData {
+  idCredit: number;
+  amount: number;
+  percent: number;
+  pay: number;
+  dateOfStarting: Date;
+  period: number;
+  checked?:boolean
+}
